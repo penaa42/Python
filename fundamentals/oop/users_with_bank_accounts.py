@@ -40,3 +40,5 @@ class User:
 
 John = User("John", "john@email.com")
 John.make_deposit(100).make_withdrawal(15).make_withdrawal(33).make_withdrawal(56).display_user_balance()
+
+# add functionality for multiple accounts per user
