@@ -24,7 +24,7 @@ players = [
         "team": "Portland Trailblazers"
     },
     {
-        "name": "oel Embiid",
+        "name": "Joel Embiid",
         "age": 32,
         "position": "Power Forward",
         "team": "Philidelphia 76ers"
@@ -37,35 +37,22 @@ players = [
     }
 ]
 
-# class Player:
-#     def __init__(self, name, age, position, team):
-#         self.name = name
-#         self.age = age
-#         self.position = position
-#         self.team = team
-
 class Player:
     def __init__(self, data):
         self.name = data["name"]
         self.age = data["age"]
         self.position = data["position"]
         self.team = data["team"]
-        print(self.name)
 
-    def player_info(self):
-        print(self)
+    @classmethod
+    def get_team(cls):
+        new_team = []
 
-    new_team = []
-
-    def get_players(players):
-        # print(players)
         for player in players:
-            # print(player)
-            # data = player
-            pass
+            new_player = cls(player)
+            new_team.append(new_player)
 
-
-Player.get_players(players)
+        return new_team
 
 kevin = {
     "name": "Kevin Durant",
@@ -88,7 +75,8 @@ kyrie = {
     "team": "Brooklyn Nets"
 }
 
-# player_kevin = Player(kevin)
-# player_jason = Player(jason)
-# player_kyrie = Player(kyrie)
-# print(Player(kevin))
+player_kevin = Player(kevin)
+player_jason = Player(jason)
+player_kyrie = Player(kyrie)
+
+print(Player.get_team())
